@@ -9,7 +9,7 @@ import java.util.*
 import java.util.function.Function
 
 @Repository
-class UserRepository: UserRepository {
+class MockUserRepository: UserRepository {
 
     private val userList = mutableListOf<UserEntity>()
 

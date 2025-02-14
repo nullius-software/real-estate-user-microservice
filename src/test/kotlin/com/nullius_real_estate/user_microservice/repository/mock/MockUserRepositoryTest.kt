@@ -9,8 +9,8 @@ import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Sort
 import java.util.*
 
-class UserRepositoryTest {
-    private val mockUserRepository = UserRepository()
+class MockUserRepositoryTest {
+    private val mockUserRepository = MockUserRepository()
 
     @Test
     fun `should create a User`() {
