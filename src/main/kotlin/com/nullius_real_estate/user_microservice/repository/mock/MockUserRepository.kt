@@ -40,8 +40,8 @@ class MockUserRepository: UserRepository {
             val direction = if (order.isAscending) 1 else -1
             Comparator<UserEntity> { a, b ->
                 when (property) {
-                    "firstName" -> direction * a.firstName.compareTo(b.firstName)
-                    "lastName" -> direction * a.lastName.compareTo(b.lastName)
+                    "firstName" -> direction * compareNullableStrings(a.firstName, b.firstName)
+                    "lastName" -> direction * compareNullableStrings(a.lastName, b.lastName)
                     "email" -> direction * a.email.compareTo(b.email)
                     else -> 0
                 }
@@ -49,6 +49,15 @@ class MockUserRepository: UserRepository {
         }.reduce { acc, comparator -> acc.thenComparing(comparator) }
 
         return userList.sortedWith(comparator).toMutableList()
+    }
+
+    private fun compareNullableStrings(a: String?, b: String?): Int {
+        return when {
+            a == null && b == null -> 0
+            a == null -> -1
+            b == null -> 1
+            else -> a.compareTo(b)
+        }
     }
 
     override fun findAll(pageable: Pageable): Page<UserEntity> {
@@ -72,8 +81,8 @@ class MockUserRepository: UserRepository {
             val direction = if (order.isAscending) 1 else -1
             Comparator<UserEntity> { a, b ->
                 when (property) {
-                    "firstName" -> direction * a.firstName.compareTo(b.firstName)
-                    "lastName" -> direction * a.lastName.compareTo(b.lastName)
+                    "firstName" -> direction * compareNullableStrings(a.firstName, b.firstName)
+                    "lastName" -> direction * compareNullableStrings(a.lastName, b.lastName)
                     "email" -> direction * a.email.compareTo(b.email)
                     else -> 0
                 }

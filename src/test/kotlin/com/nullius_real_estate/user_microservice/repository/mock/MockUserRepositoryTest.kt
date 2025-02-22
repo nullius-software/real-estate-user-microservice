@@ -14,7 +14,7 @@ class MockUserRepositoryTest {
 
     @Test
     fun `should create a User`() {
-        val user = UserEntity(UUID.randomUUID(), "first name", "last name", "email@email.com")
+        val user = UserEntity(UUID.randomUUID(), "first name", "last name", "email@email.com", "mockExternalId")
         val savedUser = mockUserRepository.save(user)
         assertNotNull(savedUser)
         assertEquals(user, savedUser)
@@ -29,9 +29,9 @@ class MockUserRepositoryTest {
 
     @Test
     fun `should find all users ordered by first name asc`() {
-        val user1 = UserEntity(UUID.randomUUID(), "ana", "perez", "ana.perez@gmail.com")
-        val user2 = UserEntity(UUID.randomUUID(), "juan", "lopez", "juan.lopez@gmail.com")
-        val user3 = UserEntity(UUID.randomUUID(), "maria", "garcia", "maria.garcia@gmail.com")
+        val user1 = UserEntity(UUID.randomUUID(), "ana", "perez", "ana.perez@gmail.com", "mockExternalId")
+        val user2 = UserEntity(UUID.randomUUID(), "juan", "lopez", "juan.lopez@gmail.com", "mockExternalId")
+        val user3 = UserEntity(UUID.randomUUID(), "maria", "garcia", "maria.garcia@gmail.com", "mockExternalId")
 
         // Assume mockUserRepository is already populated with user1, user2, user3
         mockUserRepository.save(user1)
@@ -50,9 +50,9 @@ class MockUserRepositoryTest {
 
     @Test
     fun `should find all users ordered by last name asc`() {
-        val user1 = UserEntity(UUID.randomUUID(), "ana", "perez", "ana.perez@gmail.com")
-        val user2 = UserEntity(UUID.randomUUID(), "juan", "lopez", "juan.lopez@gmail.com")
-        val user3 = UserEntity(UUID.randomUUID(), "maria", "garcia", "maria.garcia@gmail.com")
+        val user1 = UserEntity(UUID.randomUUID(), "ana", "perez", "ana.perez@gmail.com", "mockExternalId")
+        val user2 = UserEntity(UUID.randomUUID(), "juan", "lopez", "juan.lopez@gmail.com", "mockExternalId")
+        val user3 = UserEntity(UUID.randomUUID(), "maria", "garcia", "maria.garcia@gmail.com", "mockExternalId")
 
         // Assume mockUserRepository is already populated with user1, user2, user3
         mockUserRepository.save(user1)
@@ -71,9 +71,9 @@ class MockUserRepositoryTest {
 
     @Test
     fun `should find all users ordered by email asc`() {
-        val user1 = UserEntity(UUID.randomUUID(), "ana", "perez", "ana.perez@gmail.com")
-        val user2 = UserEntity(UUID.randomUUID(), "juan", "lopez", "juan.lopez@gmail.com")
-        val user3 = UserEntity(UUID.randomUUID(), "maria", "garcia", "maria.garcia@gmail.com")
+        val user1 = UserEntity(UUID.randomUUID(), "ana", "perez", "ana.perez@gmail.com", "mockExternalId")
+        val user2 = UserEntity(UUID.randomUUID(), "juan", "lopez", "juan.lopez@gmail.com", "mockExternalId")
+        val user3 = UserEntity(UUID.randomUUID(), "maria", "garcia", "maria.garcia@gmail.com", "mockExternalId")
 
         // Assume mockUserRepository is already populated with user1, user2, user3
         mockUserRepository.save(user1)
@@ -92,9 +92,9 @@ class MockUserRepositoryTest {
 
     @Test
     fun `should find all users with pagination`() {
-        val user1 = UserEntity(UUID.randomUUID(), "John", "Doe", "john.doe@example.com")
-        val user2 = UserEntity(UUID.randomUUID(), "Jane", "Doe", "jane.doe@example.com")
-        val user3 = UserEntity(UUID.randomUUID(), "Alice", "Smith", "alice.smith@example.com")
+        val user1 = UserEntity(UUID.randomUUID(), "John", "Doe", "john.doe@example.com", "mockExternalId")
+        val user2 = UserEntity(UUID.randomUUID(), "Jane", "Doe", "jane.doe@example.com", "mockExternalId")
+        val user3 = UserEntity(UUID.randomUUID(), "Alice", "Smith", "alice.smith@example.com", "mockExternalId")
 
         // Assume mockUserRepository is already populated with user1, user2, user3
         mockUserRepository.save(user1)
@@ -112,9 +112,9 @@ class MockUserRepositoryTest {
 
     @Test
     fun `should find all users that match a given example`() {
-        val user1 = UserEntity(UUID.randomUUID(), "John", "Doe", "john.doe@example.com")
-        val user2 = UserEntity(UUID.randomUUID(), "Jane", "Doe", "jane.doe@example.com")
-        val user3 = UserEntity(UUID.randomUUID(), "Alice", "Smith", "alice.smith@example.com")
+        val user1 = UserEntity(UUID.randomUUID(), "John", "Doe", "john.doe@example.com", "mockExternalId")
+        val user2 = UserEntity(UUID.randomUUID(), "Jane", "Doe", "jane.doe@example.com", "mockExternalId")
+        val user3 = UserEntity(UUID.randomUUID(), "Alice", "Smith", "alice.smith@example.com", "mockExternalId")
 
         // Assume mockUserRepository is already populated with user1, user2, user3
         mockUserRepository.save(user1)
@@ -132,9 +132,9 @@ class MockUserRepositoryTest {
 
     @Test
     fun `should find all users that match a given example and are sorted by first name`() {
-        val user1 = UserEntity(UUID.randomUUID(), "John", "Doe", "john.doe@example.com")
-        val user2 = UserEntity(UUID.randomUUID(), "Jane", "Doe", "jane.doe@example.com")
-        val user3 = UserEntity(UUID.randomUUID(), "Alice", "Smith", "alice.smith@example.com")
+        val user1 = UserEntity(UUID.randomUUID(), "John", "Doe", "john.doe@example.com", "mockExternalId")
+        val user2 = UserEntity(UUID.randomUUID(), "Jane", "Doe", "jane.doe@example.com", "mockExternalId")
+        val user3 = UserEntity(UUID.randomUUID(), "Alice", "Smith", "alice.smith@example.com", "mockExternalId")
 
         // Assume mockUserRepository is already populated with user1, user2, user3
         mockUserRepository.save(user1)
@@ -153,9 +153,9 @@ class MockUserRepositoryTest {
 
     @Test
     fun `should find all users that match a given example with pagination`() {
-        val user1 = UserEntity(UUID.randomUUID(), "John", "Doe", "john.doe@example.com")
-        val user2 = UserEntity(UUID.randomUUID(), "Jane", "Doe", "jane.doe@example.com")
-        val user3 = UserEntity(UUID.randomUUID(), "Alice", "Smith", "alice.smith@example.com")
+        val user1 = UserEntity(UUID.randomUUID(), "John", "Doe", "john.doe@example.com", "mockExternalId")
+        val user2 = UserEntity(UUID.randomUUID(), "Jane", "Doe", "jane.doe@example.com", "mockExternalId")
+        val user3 = UserEntity(UUID.randomUUID(), "Alice", "Smith", "alice.smith@example.com", "mockExternalId")
 
         // Assume mockUserRepository is already populated with user1, user2, user3
         mockUserRepository.save(user1)

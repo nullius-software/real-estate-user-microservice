@@ -8,7 +8,8 @@ import java.util.UUID
 data class UserEntity (
     @Id
     val id: UUID = UUID.randomUUID(),
-    val firstName: String,
-    val lastName: String,
-    val email: String
+    val firstName: String?,
+    val lastName: String?,
+    val email: String,
+    val externalId: String
 )

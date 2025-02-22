@@ -1,6 +1,8 @@
 package com.nullius_real_estate.user_microservice.controller
 
+import com.nullius_real_estate.user_microservice.controller.dto.CreateUserDto
 import com.nullius_real_estate.user_microservice.entity.UserEntity
+import com.nullius_real_estate.user_microservice.mapper.UserMapper
 import com.nullius_real_estate.user_microservice.repository.UserRepository
 import com.nullius_real_estate.user_microservice.service.UserService
 import org.springframework.beans.factory.annotation.Autowired
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController
 class UserController {
     @Autowired
     lateinit var userService: UserService
+    val userMapper = UserMapper()
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
@@ -26,7 +29,7 @@ class UserController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    fun create(@RequestBody user: UserEntity): UserEntity {
-        return userService.create(user)
+    fun create(@RequestBody user: CreateUserDto): UserEntity {
+        return userService.create(userMapper.fromCreateUserDtoToUserEntity(user))
     }
 }
