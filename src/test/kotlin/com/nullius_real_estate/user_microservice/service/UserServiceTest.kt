@@ -23,8 +23,8 @@ class UserServiceTest {
 
     @Test
     fun getAll() {
-        val user1 = UserEntity(UUID.randomUUID(), "John", "Doe", "john.doe@example.com")
-        val user2 = UserEntity(UUID.randomUUID(), "Jane", "Doe", "jane.doe@example.com")
+        val user1 = UserEntity(UUID.randomUUID(), "John", "Doe", "john.doe@example.com", "mockExternalId")
+        val user2 = UserEntity(UUID.randomUUID(), "Jane", "Doe", "jane.doe@example.com", "mockExternalId")
 
         Mockito.`when`(dataSource.findAll()).thenReturn(listOf(user1, user2))
 
@@ -36,7 +36,7 @@ class UserServiceTest {
 
     @Test
     fun create() {
-        val user = UserEntity(UUID.randomUUID(), "John", "Doe", "john.doe@example.com")
+        val user = UserEntity(UUID.randomUUID(), "John", "Doe", "john.doe@example.com", "mockExternalId")
 
         Mockito.`when`(dataSource.save(user)).thenReturn(user)
 
