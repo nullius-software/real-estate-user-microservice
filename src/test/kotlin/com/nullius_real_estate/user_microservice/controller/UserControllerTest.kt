@@ -33,7 +33,7 @@ class UserControllerTest {
             {
                 "firstName": "John",
                 "lastName": "Doe",
-                "email": "john.doe@example.com"
+                "email": "john.doe@example.com",
                 "externalId": "mockExternalId"
             }
         """
